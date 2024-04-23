@@ -1,0 +1,6 @@
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+31,f1f1f1+56,e1e1e1+71,f6f6f6+83 */
+background: rgb(255,255,255); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(255,255,255,1) 31%, rgba(241,241,241,1) 56%, rgba(225,225,225,1) 71%, rgba(246,246,246,1) 83%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 31%,rgba(241,241,241,1) 56%,rgba(225,225,225,1) 71%,rgba(246,246,246,1) 83%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(255,255,255,1) 31%,rgba(241,241,241,1) 56%,rgba(225,225,225,1) 71%,rgba(246,246,246,1) 83%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */

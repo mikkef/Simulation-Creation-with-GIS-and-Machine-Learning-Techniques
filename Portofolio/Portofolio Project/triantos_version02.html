@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+.container {
+  overflow: hidden;
+ /* width: 70;
+  height: 70vh;*/
+  /*background: #4776e6;
+  background: -webkit-linear-gradient(to right, #8e54e9, #4776e6);
+  background: linear-gradient(to right, #8e54e9, #4776e6);*/
+  display: flex;
+}
+#navbar {
+  background-color: #333;
+  position: fixed;
+  top: -100px;
+  width: 100%;
+   width: 100%;
+  height: 60px;
+ display: flex;
+  transition: top 0.3s;
+  z-index:300000;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.menu2{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0px 100px;
+}
+
+.menu2 li {
+  display: block;
+  height: 100%;
+  font-size: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-transform: uppercase;
+ /* text-shadow: 0 0 15px #8e54e9;*/
+  transition: all 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  text-align: center;
+  padding: 0 10px;
+  margin-right: 60px;
+}
+
+/* Style 1 */
+/* Before Hover: Width of before element is set to 100% and height to 0 and Width of before element is*/
+/* set to 0% and height to 100%  */
+/* On Hover:  Top and bottom borders' of after element and left and right borders of before element*/
+/* is animated here by increasing the height of before element from 0 to 80% and width of after */
+/* element from 0 to 120% */
+
+
+/* Style 3 */
+/* Before hover: After element's top and left borders are set, same as before elements's */
+/* right and bottom borders, width and height of both elements are set to 0% */
+/* On Hover: the before and after elements's height and width increased from 0 to 100%  */
+.menu2 li:after,
+.menu2 li:before {
+  content: "";
+  position: absolute;
+  display: block;
+  border: 0px solid transparent;
+  width: 0%;
+  height: 0%;
+  transition: all 0.5s ease;
+}
+
+.menu2 li:after {
+  width: 0%;
+  height: 0%;
+  top: 0;
+  left: 0;
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+}
+
+.menu2 li:before {
+  width: 0%;
+  height: 0%;
+  right: 0;
+  bottom: 0;
+  border-bottom: 2px solid transparent;
+  border-right: 2px solid transparent;
+}
+
+.menu2 li:hover::before,
+.menu2 li:hover::after {
+  width: 100%;
+  height: 100%;
+  border-color: #fff;
+}
+
+
+</style>
+<!--<title>LA CASA DI ANNA HOMEPAGE</title>-->
+<link rel="stylesheet" type="text/css" href="C:\Users\mikke\Desktop\Τριάντος_Νοικιαζόμενα\project.css">
+<link rel="stylesheet" type="text/css" href="C:\xampp\htdocs\php_programs\footer.css">
+
+<link rel="stylesheet" type="text/css" href="C:\xampp\htdocs\php_programs\location_image_text.css">
+<link rel="stylesheet" type="text/css" href="C:\Users\mikke\Desktop\Τριάντος_Νοικιαζόμενα\background_color.css">
+<link rel="stylesheet" type="text/css" href="C:\Users\mikke\Desktop\Τριάντος_Νοικιαζόμενα\box_text.css">
+<link rel="stylesheet" type="text/css" href="C:\Users\mikke\Desktop\Τριάντος_Νοικιαζόμενα\3dimage.css">
+<link rel="stylesheet" type="text/css" href="C:\Users\mikke\Desktop\Τριάντος_Νοικιαζόμενα\appear_text_test.css">
+<link rel="stylesheet" type="text/css" href="C:\Users\mikke\Desktop\Τριάντος_Νοικιαζόμενα\independent_bar.css">
+
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+	<style>
+		.leaflet-container {
+		position:center;
+			height: 400px;
+			width: 1500px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+		.leaflet-popup img {
+  max-width: 200px;
+  max-height: 200px;
+}
+	</style>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="header2_independent">
+      <ul class="menu2_independent">
+        <li id="about_us_ind">About</li>
+		 <li id="location_ind">Location</li>
+        <li id="services_ind">Services</li>
+        <li id="gallery_ind">Gallery</li>
+		<li id="entertainment_ind">Entertainment</li>
+        <li id="contact_ind">Contact</li>
+		<li id="book_ind">Book Now</li>
+      </ul>
+    </div>
+
+<div class="container">
+<div id="navbar">
+<div class="header2">
+      <ul class="menu2">
+        <li id="about_us">About</li>
+		 <li id="location">Location</li>
+        <li id="services">Services</li>
+        <li id="gallery">Gallery</li>
+		<li id="entertainment">Entertainment</li>
+        <li id="contact">Contact</li>
+		<li id="book">Book Now</li>
+      </ul>
+    </div>
+</div>
+</div>
+
+
+<h1 class="ml6">
+  <span class="text-wrapper">
+    <span class="letters">Welcome to Melissani Apartments</span>
+  </span>
+  </h1>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+
+<div class="slideshow-container-welcomepage">
+
+	
+
+	<div class="mySlides fade">
+	
+		<div class="numbertext"></div>
+			<img src = "C:\Users\mikke\Desktop\wetransfer_crinaeae-001-jpg_2022-12-02_1556\Crinaeae - 001.jpg" style="float: center;"alt = "" width="1473" height="740" />
+			
+	</div>
+
+	
+	<div class="mySlides fade">
+		<div class="numbertext"></div>
+			<img src = "C:\Users\mikke\Desktop\wetransfer_crinaeae-001-jpg_2022-12-02_1556\Πρώτη κάτω δεξία\Crinaeae - 003.jpg" style="float: center;"alt = "" width="1473" height="740" />
+	</div>
+	
+	
+
+</div>
+<span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span>
+
+</div>
+ 
+
+</div>
+<br>
+
+<div class="container2">
+	
+<img src = "C:\Users\mikke\Desktop\wetransfer_crinaeae-001-jpg_2022-12-02_1556\Πρώτη κάτω δεξία\Crinaeae - 002.jpg" ALIGN= "right" alt = "" width="600" height="400" />
+		
+	<div class="body_text_left">
+	<div class="content_title">
+		<p> About</p>
+	</div>
+<p><i> Located in the Old Town of Rhodes</br>
+	The beauty of the Aegean is within your reach</br>
+	Relax and enjoy the once in a lifetime experience</i></p>
+	</div>
+
+	
+</div>
+
+<!-- -->
+
+<div class="container">
+	<div class="body_text_left">
+		<div class="content_title">
+			<p> Services</p>
+			</div>
+<p><i> Leading onto a terrace, this air-conditioned apartment comes</br>
+	 with 2 separate bedrooms. The apartment provides guests</br>
+	 with a seating area and 1 bathroom with a bath and</br>
+	it offers a barbecue. Guests can also</br>
+	relax in the garden.</br></i></p>
+	</div>
+
+	
+
+
+
+<div class="slideshow-container">
+
+	<div class="mySlides2 fade">
+		<div class="numbertext"></div>
+			<img src = "C:\Users\mikke\Desktop\wetransfer_crinaeae-001-jpg_2022-12-02_1556\Services\Limnad - 002.jpg" style="float: right;"alt = "" width="600" height="400" />
+	</div>
+
+	<div class="mySlides2 fade">
+		<div class="numbertext"></div>
+			<img src = "C:\Users\mikke\Desktop\Τριάντος_Νοικιαζόμενα\Photos_Kefalonia_Triantos\tv_living_room.jpg" style="float: right;"alt = "" width="600" height="400" />
+	</div>
+
+	<div class="mySlides2 fade">
+		<div class="numbertext"></div>
+			<img src = "C:\Users\mikke\Desktop\wetransfer_crinaeae-001-jpg_2022-12-02_1556\Πρώτη κάτω δεξία\Naiad - 006.jpg" style="float: right;"alt = "" width="600" height="400" />
+	</div>
+	
+	<div class="mySlides2 fade">
+		<div class="numbertext"></div>
+			<img src = "C:\Users\mikke\Desktop\wetransfer_crinaeae-001-jpg_2022-12-02_1556\Πρώτη κάτω δεξία\Naiad - 011.jpg" style="float: right;"alt = "" width="600" height="400" />
+	</div>
+	
+	<div class="mySlides2 fade">
+		<div class="numbertext"></div>
+			<img src = "C:\Users\mikke\Desktop\wetransfer_crinaeae-001-jpg_2022-12-02_1556\Εξωτερικές δεξία δεύτερη σειρά απο πρωινές σε βραδινές\Naiad - 012.jpg" style="float: right;"alt = "" width="600" height="400" />
+	</div>
+	
+	<div class="mySlides2 fade">
+		<div class="numbertext"></div>
+			<img src = "C:\Users\mikke\Desktop\wetransfer_crinaeae-001-jpg_2022-12-02_1556\Πρώτη κάτω δεξία\Melissani - 001.jpg" style="float: right;"alt = "" width="600" height="400" />
+	</div>	
+
+</div>
+ 
+  <span class="dot2"></span> 
+  <span class="dot2"></span> 
+  <span class="dot2"></span> 
+  <span class="dot2"></span> 
+  <span class="dot2"></span> 
+  <span class="dot2"></span>
+
+</div>
+
+
+
+<!-- -->
+<br>
+<div class="container2">
+	
+		
+	<div class="body_text_center">
+	<div class="content_title_location">
+		<p> Location</p>
+	</div>
+<p><i> </i></p>
+	</div>
+
+	
+</div>
+
+
+	
+<!--
+<div class= "checkbox_class">
+	<input type="checkbox" id="item1" name="Restaurants/Bars" value="Bike">
+	<label for="vehicle1"> Restaurants/Bars</label><br>
+	<input type="checkbox" id="item2" name="" value="Car">
+	<label for="vehicle2"> Supermarkets</label><br>
+	<input type="checkbox" id="item3" name="Clubs" value="Boat">
+	<label for="vehicle3"> Clubs</label><br>
+	<input type="checkbox" id="item4" name="Shisha" value="Boat">
+	<label for="vehicle3"> Beaches </label><br>
+	<input type="checkbox" id="item5" name="Pharmacies" value="Boat">
+	<label for="vehicle3"> Pharmacies</label><br>
+	<input type="checkbox" id="item6" name="Taxi-Stops" value="Boat">
+	<label for="vehicle3"> Taxi-Stops</label><br>
+</div>
+-->
+<div class="canvas_pos">
+<canvas id="myCanvas" width="1500" height="690" style="border:0px solid #000000;">
+</canvas>
+</div>
+<div class= "3dimage">
+
+<div class= "image_of_text_box">
+<img src = "C:\Users\mikke\Desktop\Τριάντος_Νοικιαζόμενα\Photos_Kefalonia_Triantos\wheretostayinkefalonia.jpg" ALIGN= "centre" alt = "" width="580" height="485" />
+</div>
+</div>
+
+
+
+<div class="container_box">
+
+	<div class= "text_box">
+	<div class= "text_of_box">
+		<p>There are many option and places to visit. From retaurants to clubs and beach bars Kefalonia is a beautiful destination full of things to see and do. Click on the "ENTERTAINMENT" Tab to see our web app with our favourite suggestions! </p>
+	</div>
+	<div class= "location_background_box">
+	</div>
+	</div>
+	
+	
+	<div class= "text_box2">
+	<div class= "text_of_box">
+		<p>There are many option and places to visit. From retaurants to clubs and beach bars Kefalonia is a beautiful destination full of things to see and do. Click on the "ENTERTAINMENT" Tab to see our web app with our favourite suggestions! </p>
+	</div>
+	</div>
+	<div class= "image_of_text_box_right">
+<img src = "C:\Users\mikke\Desktop\Τριάντος_Νοικιαζόμενα\Photos_Kefalonia_Triantos\what-to-see-in-kefalonia-bench-under-a-tree-on-a-sunny-day-at-assos-beach-kefalonia-greece-162-3024.jpg" ALIGN= "centre" alt = "" width="580" height="485" />
+</div>
+	</div>
+	
+</div>
+
+<br>
+
+
+
+<div class="content_title_gallery">
+	<p ALIGN= "center"><i> Gallery</p>
+</div>
+
+
+<br>
+
+<img  class="myImages" id="myImg" src = "C:\Users\mikke\Desktop\Τριάντος_Νοικιαζόμενα\Photos_Kefalonia_Triantos\bedroom.jpg" ALIGN= "right" alt = "" width="200" height="200" />
+<img  class="myImages" id="myImg" src = "C:\Users\mikke\Desktop\Τριάντος_Νοικιαζόμενα\Photos_Kefalonia_Triantos\bedroom_sideways.jpg" ALIGN= "right" alt = "" width="200" height="200" />
+<img  class="myImages" id="myImg" src = "C:\Users\mikke\Desktop\Τριάντος_Νοικιαζόμενα\Photos_Kefalonia_Triantos\kitchen.jpg" ALIGN= "right" alt = "" width="200" height="200" />
+<img  class="myImages" id="myImg" src = "C:\Users\mikke\Desktop\Τριάντος_Νοικιαζόμενα\Photos_Kefalonia_Triantos\living_room_fridge.jpg" ALIGN= "right" alt = "" width="200" height="200" />
+
+<img  class="myImages" id="myImg" src = "C:\Users\mikke\Desktop\Τριάντος_Νοικιαζόμενα\Photos_Kefalonia_Triantos\tzakouzi.jpg" ALIGN= "right" alt = "" width="200" height="200" />
+<img class="myImages" id="myImg" src = "C:\Users\mikke\Desktop\Τριάντος_Νοικιαζόμενα\Photos_Kefalonia_Triantos\roof_night.jpg" ALIGN= "right" alt = "" width="200" height="200" />
+<img class="myImages" id="myImg" src = "C:\Users\mikke\Desktop\Τριάντος_Νοικιαζόμενα\Photos_Kefalonia_Triantos\roof.jpg" ALIGN= "right" alt = "" width="200" height="200" />
+<img class="myImages" id="myImg" src = "C:\Users\mikke\Desktop\Τριάντος_Νοικιαζόμενα\Photos_Kefalonia_Triantos\outside.jpg" ALIGN= "right" alt = "" width="200" height="200" />
+<img class="myImages" id="myImg" src = "C:\Users\mikke\Desktop\Τριάντος_Νοικιαζόμενα\Photos_Kefalonia_Triantos\what-to-see-in-kefalonia-bench-under-a-tree-on-a-sunny-day-at-assos-beach-kefalonia-greece-162-3024.jpg" ALIGN= "right" alt = "" width="200" height="200" />
+<img class="myImages" id="myImg" src = "C:\Users\mikke\Desktop\Τριάντος_Νοικιαζόμενα\Photos_Kefalonia_Triantos\sofa.jpg" ALIGN= "right" alt = "" width="200" height="200" />
+<img class="myImages" id="myImg" src = "C:\Users\mikke\Desktop\Τριάντος_Νοικιαζόμενα\Photos_Kefalonia_Triantos\tv_living_room.jpg" ALIGN= "right" alt = "" width="200" height="200" />
+<img class="myImages" id="myImg" src = "C:\Users\mikke\Desktop\Μεταπτυχιακό\Γ' Εξάμηνο\Χαρτογραφικές_Εφαρμογές_στο_Διαδίκτυο\gallery13.jpg" ALIGN= "right" alt = "" width="200" height="200" />
+<img class="myImages" id="myImg" src = "C:\Users\mikke\Desktop\Μεταπτυχιακό\Γ' Εξάμηνο\Χαρτογραφικές_Εφαρμογές_στο_Διαδίκτυο\gallery14.jpg" ALIGN= "right" alt = "" width="200" height="200" />
+<img class="myImages" id="myImg" src = "C:\Users\mikke\Desktop\Μεταπτυχιακό\Γ' Εξάμηνο\Χαρτογραφικές_Εφαρμογές_στο_Διαδίκτυο\gallery15.jpg" ALIGN= "right" alt = "" width="200" height="200" />
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+<br>
+
+
+
+
+
+<div class="content_title">
+	<p ALIGN= "center"><i> __________________________________________</p>
+</div>
+<br>
+
+<div id="map" style="width: 800; height: 480;"></div>
+<script>
+
+	var center = [38.1754, 20.5692];
+
+// Create the map
+var map = L.map('map').setView(center, 10);
+
+// Set up the OSM layer
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+	maxZoom:18
+}).addTo(map);
+
+//////////////////////////// OPENSTREET-MAP BASEMAP UNCOMMENT TO ALLOW/////////////////////////
+/*L.tileLayer(
+  'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'Data © <a href="http://osm.org/copyright">OpenStreetMap</a>',
+    maxZoom: 18
+  }).addTo(map);*/
+  //////////////////////////OPENSTREET-MAP BASEMAP UNCOMMENT TO ALLOW//////////////////////////
+
+// add a marker in the given location
+L.marker(center).addTo(map);
+L.marker([38.1754, 20.5692]).addTo(map).bindPopup('<br>Hello, We are the Triantos family and we are happy to show you around!</br><br> Move your mouse over the labels to find information and a picture for each of our favourite places to visit in Kefalonia. </br> <br>Click to zoom to location. </br>')
+    .openPopup();
+
+//var imageUrl = 'https://t-cf.bstatic.com/xdata/images/hotel/max1024x768/178997172.jpg?k=22beab7e83b690f1fa53246e3c20f7ad2dbacb7553f1f2c5c53f7f16878de696&o=&hp=1',
+//imageBounds = [center, [38.1754, 20.5692]];
+
+//L.imageOverlay(imageUrl, imageBounds).addTo(map);
+
+//this is ronda
+//L.marker(center).addTo(map);
+//L.marker([38.3760017,20.5385741]).addTo(map).on('mouseover', onMouseover).on('mouseout', onMouseout).on('click', onClick).bindPopup('This is Assos Beach. Small pebble beach with clear, calm waters & a picturesque harbor with open-air tavernas.');
+
+//fiscardo beach
+var imageUrl = "C:\Users\mikke\Desktop\Τριάντος_Νοικιαζόμενα\wheretostayinkefalonia.jpg";
+L.marker(center).addTo(map);
+L.marker([38.4595136,20.5720551]).addTo(map).on('mouseover', onMouseover).on('mouseout', onMouseout).on('click', onClick).bindPopup("<img src='https://www.greeka.com/village_beach/photos/829/foki-fiskardo-top-1-1280.jpg'/>");
+//.on('click', onClick)
+//myrtos beach
+L.marker(center).addTo(map);
+L.marker([38.3468638,20.5252942]).addTo(map).on('mouseover', onMouseover).on('mouseout', onMouseout).on('click', onClick).bindPopup("This is Myrtos Beach. Picturesque, secluded & undeveloped white-sand beach surrounded by sheer limestone cliffs. <img src='https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/4c/29/d0/photo0jpg.jpg?w=1200&h=-1&s=1'/>");
+
+//moni agiou gerosimou
+L.marker(center).addTo(map);
+L.marker([38.1636315,20.5837162]).addTo(map).on('mouseover', onMouseover).on('mouseout', onMouseout).on('click', onClick).bindPopup("Sacred Monastery of Agios Gerasimos of Kefalonia. In 1560, Saint Gerasimos founded a nunnery in the valley of Omala, central Kefalonia, and called it the New Jerusalem The monastery is situated under the imposing Mount Ainos and near the villages of Fragata and Valsamata. Today the monastery has been reconstructed. It is an imposing building with a newly built church. Beneath the monastery, there is a cave with two rooms which used to be the home of the Saint. The only way to access this cave is by a large hole.<br> <img src='https://www.greeka.com/seedo/photos/131/kefalonia-agios-gerasimos-monastery-top-2-1280.jpg'/>");
+
+//agia effimia
+L.marker(center).addTo(map);
+L.marker([38.3016794,20.5960347]).addTo(map).on('mouseover', onMouseover).on('mouseout', onMouseout).on('click', onClick).bindPopup("Agia Effimia is a village on the east coast of the island of Kefalonia in Greece. It was the seat of the former Pylaros municipality. It is a traditional fishing village centred on a small harbour. <br> <img src='https://content.tui.co.uk/adamtui/2017_3/2_10/852b753e-b984-428f-8420-a72a00a95ce6/shutterstock_271777058WebOriginalCompressed.jpg?i10c=img.resize(width:658);img.crop(width:658%2Cheight:370)'/>");
+
+//lassi
+L.marker(center).addTo(map);
+L.marker([38.1639919,20.4826267]).addTo(map).on('mouseover', onMouseover).on('mouseout', onMouseout).on('click', onClick).bindPopup("Lassi is a laid-back resort village known for its scenic beaches, popular in summer for sunbathing and water sports in a crystalline bay. To the west, quiet stretches of white sand flank the Lassi Caves.<br> <img src='https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/7e/66/62/caption.jpg?w=300&h=300&s=1'/>");
+
+//makris gyalos
+L.marker(center).addTo(map);
+L.marker([38.1516325,20.4797192]).addTo(map).on('mouseover', onMouseover).on('mouseout', onMouseout).on('click', onClick).bindPopup("This is Makris Giaolos. A sandy stretch of beach featuring calm aqua water, scenic views & comfy lounge chairs for rent.<br><img src='https://www.greekboston.com/wp-content/uploads/2017/07/Makris-Gialos-Beach-Kefalonia.jpg'/>");
+
+
+
+
+//var imageUrl = 'data:image/jpeg;base64,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',
+imageBounds = [[38.4595136,20.5720551], [38.459516,20.572059]];
+L.imageOverlay(imageUrl, imageBounds).addTo(map);
+
+
+function onClick(e) {
+   // alert(this.e.latlng());
+	map.setView(new L.LatLng(e.latlng.lat, e.latlng.lng), 17);
+	
+}
+function onMouseover(e) {
+   // alert(this.e.latlng());
+	this.openPopup();
+	
+}
+function onMouseout(e) {
+   // alert(this.e.latlng());
+	this.closePopup();
+	
+}
+</script>
+
+ <!-- Remove the container if you want to extend the Footer to full width. -->
+<div class = "content_title">
+<footer class="footer">
+<div class="container bottom_border">
+<div class="row">
+<div class=" col-sm-4 col-md col-sm-4  col-12 col">
+<h5 class="headin5_amrc col_white_amrc pt2">Contact Us</h5>
+
+<p class="mb10">We will put some text here in order to fill some void ;)</p>
+<p><i class="fa fa-location-arrow"></i> 9878/25 sec 9 rohini 35 </p>
+<p><i class="fa fa-phone"></i>  +91-9999878398  </p>
+<p><i class="fa fa fa-envelope"></i> stavrostr@gmail.com  </p>
+<p><i class="fa fa fa-envelope"></i> @All Rights Reserved Michalis Kefalakis chikichiki company  </p>
+
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+
+</footer>
+  
+
+
+
+<script>
+// When the user scrolls down 20px from the top of the document, slide down the navbar
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {  //Edited by mikkef, for two scrolls change value to 200
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-100px";
+  }
+}
+
+
+
+
+ // Wrap every letter in a span
+var textWrapper = document.querySelector('.ml6 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: false})
+  .add({
+    targets: '.ml6 .letter',
+    translateY: ["1.1em", 0],
+    translateZ: 0,
+    duration: 750,
+    delay: (el, i) => 70 * i
+  });/*.add({
+    targets: '.ml6',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });*/
+  
+  
+let slideIndex = 0;
+let slideIndex2 = 0;
+
+showSlides();
+showSlides2();
+
+function showSlides() {
+  let i;
+  let check_item1;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 4000); // Change image every n seconds
+}
+function showSlides2() {
+  let j;
+  let slides2 = document.getElementsByClassName("mySlides2");
+  let dots2 = document.getElementsByClassName("dot2");
+  for (j = 0; j < slides2.length; j++) {
+    slides2[j].style.display = "none";  
+  }
+  slideIndex2++;
+  if (slideIndex2 > slides2.length) {slideIndex2 = 1}    
+  for (j = 0; j < dots2.length; j++) {
+    dots2[j].className = dots2[j].className.replace(" active", "");
+  }
+  slides2[slideIndex2-1].style.display = "block";  
+  dots2[slideIndex2-1].className += " active";
+  setTimeout(showSlides2, 5000); // Change image every n seconds
+}
+
+
+
+
+
+const checkbox = document.getElementsByClassName("checkbox_class");
+for (i = 0; i < checkbox.length; i++) {
+    checkbox[i].addEventListener("change", function handleCheck(){
+if (this.checked) {
+	check_item1 = checkbox[i].id;
+  } else {
+	check_item1 = "false";
+  }
+	window.alert(check_item1);
+});  
+  }
+
+document.getElementById("about_us").addEventListener("click", ScrollToAboutUs);
+document.getElementById("location").addEventListener("click", ScrollToLocation);
+document.getElementById("services").addEventListener("click", ScrollToServices);
+document.getElementById("gallery").addEventListener("click", ScrollToGallery);
+document.getElementById("contact").addEventListener("click", ScrollToContact);
+document.getElementById("about_us_ind").addEventListener("click", ScrollToAboutUs);
+document.getElementById("location_ind").addEventListener("click", ScrollToLocation);
+document.getElementById("services_ind").addEventListener("click", ScrollToServices);
+document.getElementById("gallery_ind").addEventListener("click", ScrollToGallery);
+document.getElementById("contact_ind").addEventListener("click", ScrollToContact);
+//document.getElementById("entertainment").addEventListener("click", openMapPage);
+function ScrollToAboutUs(){
+   window.scrollTo(0,575);
+}
+function ScrollToLocation(){
+   window.scrollTo(0,1060);
+}
+function ScrollToServices(){
+   window.scrollTo(0,1490);
+}
+function ScrollToGallery(){
+   window.scrollTo(0,1900);
+}
+function ScrollToContact(){
+   window.scrollTo(0,2300);
+}
+
+
+
+
+var modal = document.getElementById('myModal');
+// to all images -- note I'm using a class!
+var images = document.getElementsByClassName('myImages');
+// the image in the modal
+var modalImg = document.getElementById("img01");
+// and the caption in the modal
+var captionText = document.getElementById("caption");
+
+// Go through all of the images with our custom class
+for (var i = 0; i < images.length; i++) {
+  var img = images[i];
+  // and attach our click listener for this image.
+  img.onclick = function(evt) {
+    console.log(evt);
+    modal.style.display = "block";
+    modalImg.src = this.src;
+   // captionText.innerHTML = this.alt;
+  }
+}
+
+var span = document.getElementsByClassName("close")[0];
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+
+
+
+
+/*
+function loadDoc(str) { 
+  var xhttp; 
+  if (window.XMLHttpRequest) { 
+    // code for modern browsers 
+    xhttp = new XMLHttpRequest(); 
+    } else { 
+    // code for IE6, IE5 
+    xhttp = new ActiveXObject("Microsoft.XMLHTTP"); 
+  } 
+  xhttp.onreadystatechange = function() { 
+    if (this.readyState == 4 && this.status == 200) { 
+      document.getElementById("demo").innerHTML = this.responseText; 
+    } 
+  }; 
+  xhttp.open("GET", "your_php_page.php?dayofmonth="+str, true); 
+  xhttp.send(); 
+} 
+*/
+
+
+
+
+</script>
+
+
+
+  
+</body>
+</html> 
+</html>
