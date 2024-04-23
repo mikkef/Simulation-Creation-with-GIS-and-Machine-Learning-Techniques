@@ -1,0 +1,6 @@
+smooth scale to welcome image
+welcome imageS multiple images modal change
+toolbar when scrolling, slides, on top stays same
+scale text next to the right, text appear one by one  (fade in effect)
+den theloume allagi eikones ektos apo background
+Na allazei alla kai na pataei

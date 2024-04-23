@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  overflow: hidden;
+  /*width: 70;
+  height: 70vh;*/
+  /*background: #4776e6;*/
+ /* background: -webkit-linear-gradient(to right, #8e54e9, #4776e6);
+  background: linear-gradient(to right, #8e54e9, #4776e6);*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header3_independent {
+  width: 100%;
+  height: 60px;
+  position:relativ;
+ /* padding-left:357px;*/
+/*  padding-left:25%;*/
+ /* top:50px;*/
+/*z-index:999;*/
+}
+
+.menu3_independent{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  list-style: none;
+  /*padding: 0 100px;*/
+
+
+}
+
+.menu3_independent li {
+  display: block;
+  height: 100%;
+  font-size: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ /* color: #fff;*/
+  text-transform: uppercase;
+ /* text-shadow: 0 0 15px #8e54e9;*/
+/*  transition: all 300ms cubic-bezier(0.075, 0.82, 0.165, 1);*/
+  text-align: center;
+  padding: 0 20px;
+  margin-right: 52px;
+}
+
+/* Style 1 */
+/* Before Hover: Width of before element is set to 100% and height to 0 and Width of before element is*/
+/* set to 0% and height to 100%  */
+/* On Hover:  Top and bottom borders' of after element and left and right borders of before element*/
+/* is animated here by increasing the height of before element from 0 to 80% and width of after */
+/* element from 0 to 120% */
+
+
+/* Style 3 */
+/* Before hover: After element's top and left borders are set, same as before elements's */
+/* right and bottom borders, width and height of both elements are set to 0% */
+/* On Hover: the before and after elements's height and width increased from 0 to 100%  */
+/*.menu3_independent li:after,*/
+.menu3_independent li:before {
+  content: "";
+  position: absolute;
+  display: block;
+ border-radius: 10px;
+  border: 10px solid black;
+   border-top: 10px solid black;
+  border-left: 10px solid black;
+  width: 100%;
+  height: 100%;
+  /*transition: all 0.5s ease;*/
+}
+
+.menu3_independent li:after {
+  width: 0%;
+  height: 0%;
+  top: 0;
+  left: 0;
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+}
+
+.menu3_independent li:before {
+  width: 100%;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+background:#DCDCDC;
+opacity:50%;
+  border-bottom: 1px solid #8D4B00;
+  border-right: 1px solid #8D4B00;
+  border-top: 1px solid #8D4B00;
+  border-left: 1px solid #8D4B00;
+}
+
+.menu3_independent li:hover::before,
+.menu3_independent li:hover::after {
+  width: 100%;
+  height: 100%;
+  border-color: #8D4B00;
+  background:white;
+}
+
+.menu3_independent li:not(.clicked):hover::before,
+.menu3_independent li:not(.clicked):hover::after {
+  width: 100%;
+  height: 100%;
+  border-color: #8D4B00;
+  background:rgba(255,255,255,0.2);
+}
+
+.menu3_independent li.clicked::before,
+.menu3_independent li.clicked::after {
+  width: 100%;
+  height: 100%;
+  border-color: #8D4B00;
+  background:white;
+}
+
+@media screen and (max-width: 767px) {
+  .header3_independent,
+  .menu3_independent {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container_gallery_media {
+    display:none;
+  }
+}
+
+
+/*.menu3_independent li:first-child::before,
+.menu3_independent li:first-child::after {
+  width: 100%;
+  height: 100%;
+  border-color: #8D4B00;
+  background: white;
+}*/
+/*Style 4  */
+/* Before Hover: All border except the bottom border is transparent */
+/* On Hover: All border except bottom border is changed to white */
